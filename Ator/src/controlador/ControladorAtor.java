@@ -29,4 +29,19 @@ public class ControladorAtor {
             JOptionPane.showMessageDialog(null, "Erro!");
         }
 }
+
+    public static void alterar(ManutencaoAtor man){
+        Ator objeto = new Ator();
+        //definir todos os atributos
+        objeto.setCodigo(Integer.parseInt(man.jtfNome_artistico.getText()));
+        objeto.setNome_artistico(man.jtfNome_real.getText());
+        objeto.setCodigo(man.jtfCodigo.getText());
+        
+        boolean resultado = DaoAtor.alterar(objeto);
+        if (resultado) {
+            JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro!");
+        }
+    }
 }

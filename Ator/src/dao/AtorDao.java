@@ -40,4 +40,19 @@ public class AtorDao {
         }
     }
     
+      public static boolean alterar(Ator objeto) {
+        String sql = "UPDATE ator SET nome_artistico = ?, nome_real = ? WHERE codigo=?";
+        try {
+            PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
+            ps.setString(1, objeto.getNome_artistico()); 
+            ps.setString(2, objeto.getNome_real());
+            ps.setInt(3, objeto.getCodigo());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
+
 }
